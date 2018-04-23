@@ -24,28 +24,29 @@ int main(){
 						{'p','d','c','r','z','m','s','n','g','r','d','n','r','p','z'},
 						{'o','h','n','k','z','w','a','t','e','r','j','g','t','r','a'}};
 				
-				cout<<endl<<endl;		
-				
+				cout<<endl;
 				
 		
 	for (int i=0;i<=14;i++){
 		for (j=0;j<=14;j++){
-			cout<<" "<<word[i][j];
+			cout<<"   "<<word[i][j];
 		}
 		cout<<endl;
 	}
-		cout<<endl<<" Masukkan Jumlah N Kali Baris Yang Akan Dicari = ";
+	
+		cout<<endl<<endl<<" Masukkan Jumlah N Kali Baris Yang Akan Dicari = ";
 		cin>>jumlahN;
 		
 		for(int x=1;x<=jumlahN;x++){
+			
 			cout<<endl<<" Masukkan Kata Yang Akan Dicari Pada Program Find Words : ";
 			cin>>fndwrds;
 			nf=strlen(fndwrds);
 			nf=nf+1;
 			strlwr(fndwrds);
-			l=0;
-			
-// Horizontal Kanan >>>			
+			cout<<" "<<fndwrds<<" = ";
+// Horizontal Kanan >>>		
+				l=0;	
 			for(j=0;j<=15;j++){
 			for(k=0;k<=15;k++){
 				if (fndwrds[l]==word[j][k])	{
@@ -104,21 +105,40 @@ int main(){
 										}
 										}
 // Vertikal Kebawah +++
-
+// Vertikal Keatas ---
+				l=0;
+			for(j=14;j>=0;j--){
+			for(k=14;k>=0;k--){
+				if (fndwrds[l]==word[k][j])	{
+					l++;
+				}else{
+					if(word[k][j]==word[k+1][j]){
+						
+					}else{
+						l=0;
+					}
+				}
+				if(l+1==nf){
+					goto selesaifor;
+				}
+				
+										}
+										}
+// Vertikal Keatas ---
 
 		selesaifor:;
 			if(l+1==nf){
-				cout<<" Ada "<<endl<<endl;
+				cout<<" Ada "<<endl;
 			}else{
-				cout<<" Tidak Ada "<<endl<<endl;
+				cout<<" Tidak Ada "<<endl;
 			}
 		
 		}
 
-		cout<<" Tekan 'y' Bila Ingin Mengakhiri Program, Tekan Tombol Asal Untuk Memulai Ulang Program";
+		cout<<" Tekan 'y' Bila Ingin Memulai Program Lagi, Tekan Tombol Asal Untuk Mengakhiri Program";
 	switch (getch()){
-		case 'y': goto selesai;
-		default: goto awal;
+		case 'y': goto awal;
+		default: goto selesai;
 	}
 selesai:;
 return 0;
