@@ -31,3 +31,43 @@ int main(){
 		}
 		cout<<endl;
 	}
+		
+	cout<<endl<<" Masukkan Kata Yang Akan Dicari Pada Program Find Words : ";
+		cin>>fndwrds;
+		nf=strlen(fndwrds);
+		nf=nf-1;
+		l=0;
+		
+		
+		//Cari Vertikal Kebawah>>>>>
+		
+		for(j=0;j<=14;j++){
+			for(k=0;k<=14;k++){
+				if (fndwrds[l]==word[k][j])	{
+					l++;
+				}else{
+					if(word[k][j]==word[k-1][j]){
+						
+					}else{
+						l=0;
+					}
+				}
+				if(l==nf){
+					goto selesaifor;
+				}
+				
+										}
+										}
+		
+		//Cari Vertikal Kebawah<<<<<
+		selesaifor:;
+			if(l==nf){
+				cout<<" Ada ";
+			}else{
+				cout<<" Tidak Ada ";
+			}
+	cout<<l<<"    "<<nf;
+
+	 return 0;
+}
+
